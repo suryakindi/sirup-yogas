@@ -50,8 +50,9 @@ Route::get('/checkout', CheckoutComponent::class)->name('shop.checkout');
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
+Route::get('/cart', CartComponent::class)->name('shop.cart');
 Route::middleware(['auth'])->group(function(){
-    Route::get('/cart', CartComponent::class)->name('shop.cart');
+    Route::get('/shop', ShopComponent::class)->name('shop');
     Route::get('/user/dashboard', UserDashboard::class)->name('user.dashboard');
 });
 Route::middleware(['auth', 'authadmin'])->group(function(){
