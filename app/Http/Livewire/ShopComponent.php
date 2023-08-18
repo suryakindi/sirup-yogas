@@ -29,14 +29,14 @@ class ShopComponent extends Component
     }
     public function store($product_id, $product_name, $product_price)
     {
-        $user = Auth()->user()->email;
-
+        // $user = Auth()->user()->email;
+        
         // To store a cart instance named 'wishlist'
        
         Cart::add($product_id,$product_name,1,$product_price)->associate('\App\Models\Product');
-        session()->flash('success_message', 'Item added in cart');
+        // session()->flash('success_message', 'Item added in cart');
         
-        return redirect()->route('shop.cart');
+        // return redirect()->route('shop.cart');
     }
     
     public function likeproduct($id)

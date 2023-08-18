@@ -81,7 +81,7 @@
                                             
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="#" wire:click.prevent="store({{$item->id}}, '{{$item->name_product}}', {{$item->price}})"><i class="fi-rs-shopping-bag-add"></i></a>
+                                            <a aria-label="Add To Cart" class="action-btn hover-up cart-items" href="#" wire:click.prevent="store({{$item->id}}, '{{$item->name_product}}', {{$item->price}})" id="{{$item->id}}" data-items-name="{{$item->name_product}}" data-items-price="{{$item->price}}"><i class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -146,3 +146,21 @@
         
     </main>
 </div>
+<script>
+    let itemsCart = document.querySelectorAll(".cart-items")
+    let cartItems = []
+    itemsCart.forEach((data) => {
+        data.addEventListener("click",() => {
+            let itemsCart = {
+                productId : data.id,
+                productName : data.dataset.itemsName,
+                productPrice : data.dataset.itemsPrice
+            }
+            cartItems.push(itemsCart)
+            let itemsStorage = sessionStorage.getItem('cart-shop');
+            sessionStorage.setItem('cart-shop',JSON.stringify(cartItems))
+            // tinggal tambah request ajax kirim data itemsCart
+            alert("Berhasil menambahkan item !")
+        })
+    })
+</script>

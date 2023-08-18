@@ -14,15 +14,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // \App\Models\User::factory(10)->create();
+        // Product::create([
+        //     'name_product' => 'Sirup Yogas',
+        //     'price' => 15000,
+        //     'description' => 'Desc',
+        //     'quantity'=>10,
+        //     'image'=>'product-1.png',
 
-        \App\Models\Product::create([
-            'name_product' => 'Sirup Yogas',
-            'price' => 15000,
-            'description' => 'Desc',
-            'quantity'=>10,
-            'image'=>'product-1.png',
-
-        ]);
+        // ]);
         \App\Models\Product::create([
             'name_product' => 'Sirup Yogas',
             'price' => 15000,

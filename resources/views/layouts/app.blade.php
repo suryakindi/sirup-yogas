@@ -124,7 +124,7 @@
                                 <a class="mini-cart-icon" href="{{route('shop.cart')}}">
                                     <img alt="Surfside Media" src="{{asset('/assets/imgs/theme/icons/icon-cart.svg')}}">
                                     @if(Cart::count() > 0)
-                                    <span class="pro-count blue">{{Cart::count()}}</span>
+                                    <span class="pro-count blue" id="count-cart">{{Cart::count()}}</span>
                                     @endif
                                 </a>
                                 
@@ -319,6 +319,12 @@
 <!-- Template  JS -->
 <script src="{{asset('assets/js/main.js?v=3.3')}}"></script>
 <script src="{{asset('assets/js/shop.js?v=3.3')}}"></script>
+<script>
+    let storageItem = sessionStorage.getItem('cart-shop')
+    let parseStorage = JSON.parse(storageItem)
+    let countCart = document.getElementById('count-cart')
+    countCart.innerHTML = parseStorage
+</script>
 @livewireScripts
 </body>
 
